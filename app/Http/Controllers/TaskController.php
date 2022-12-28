@@ -13,4 +13,19 @@ class TaskController extends Controller
             'tasks' => Task::all()
         ]);
     }
+    public function create(Request $request)
+    {
+
+        return view('tasks.create');
+    }
+
+    public function store(Request $request)
+    {
+       $taskForm = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required'
+        ]);
+        Task::create($taskForm);
+        return redirect('/');
+    } 
 }

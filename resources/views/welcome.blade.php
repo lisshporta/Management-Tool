@@ -15,6 +15,7 @@
 @else 
 <p>No Upcomming Tasks!</p>
 @endunless
+<a href="/tasks">CREATE TASK</a>
 
 
 
