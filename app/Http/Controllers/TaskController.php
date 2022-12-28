@@ -22,7 +22,8 @@ class TaskController extends Controller
     {
        $taskForm = $request->validate([
             'title' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
+            'type' => 'required',
         ]);
         Task::create($taskForm);
         return redirect('/')->with(['success' => 'Task Added!']);

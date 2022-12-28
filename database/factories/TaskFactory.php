@@ -19,6 +19,7 @@ class TaskFactory extends Factory
         return [
             'title' => fake()->title(),
             'description' => fake()->paragraph(),
+            'type' => fake()->word(),
         ];
     }
 }

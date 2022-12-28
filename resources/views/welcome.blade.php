@@ -5,7 +5,7 @@
 @foreach($tasks as $task)
 
 <h1>{{$task->title}}</h1>
-<h3>{{$task->description}}</h3>
+<h3>{{$task->description}} - {{$task->type}}</h3>
 @endforeach
 
 @else 
