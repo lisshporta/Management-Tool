@@ -1,3 +1,4 @@
+<x-layout>
 <form method="POST" action="/tasks/store" enctype="multipart/form-data">
 @csrf
 </div>
@@ -28,6 +29,7 @@ placeholder="Task description..."/>
 </form>
 
 <a href="/">GO BACK </a>
+</x-layout>
 
 
 

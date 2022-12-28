@@ -13,9 +13,8 @@ class TaskController extends Controller
             'tasks' => Task::all()
         ]);
     }
-    public function create(Request $request)
+    public function create()
     {
-
         return view('tasks.create');
     }
 
@@ -26,6 +25,6 @@ class TaskController extends Controller
             'description' => 'required'
         ]);
         Task::create($taskForm);
-        return redirect('/');
+        return redirect('/')->with(['success' => 'Task Added!']);
     } 
 }

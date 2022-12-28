@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<p>Hello World!</p>
-
+<x-layout>
+<x-flash />
 @unless(count($tasks) == 0)
 
 @foreach($tasks as $task)
@@ -15,9 +11,6 @@
 @else 
 <p>No Upcomming Tasks!</p>
 @endunless
-<a href="/tasks">CREATE TASK</a>
+<a href="/tasks/create">CREATE TASK</a>
 
-
-
-</body>
-</html>
+</x-layout>
