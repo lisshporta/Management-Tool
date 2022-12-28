@@ -1,7 +1,10 @@
 <x-layout>
 <form method="POST" action="/tasks/store" enctype="multipart/form-data">
 @csrf
-</div>
+<div style="display:flex; 
+gap: 20px;
+margin: 40px 20px; 
+height: 100%;">
     <label for="title" class="inline-block text-lg mb-2"
         >Task Title</label>
     <input
@@ -38,8 +41,9 @@ placeholder="Task description..."/>
 
 <button type="submit">Create</button>
 </form>
+</div>
+<a class="ml-2 mt-5 border-solid border-2 p-1 border-black rounded" href="/">GO BACK</a>
 
-<a href="/">GO BACK </a>
 </x-layout>
 
 
