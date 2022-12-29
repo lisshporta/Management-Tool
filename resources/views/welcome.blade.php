@@ -19,6 +19,6 @@ width: 25%;">
 <p>No Upcomming Tasks!</p>
 @endunless
 </div>
-<a class="ml-5 border-solid border-2 p-1 border-black rounded" href="/tasks/create">CREATE TASK</a>
+<a class=" outline-black hover:bg-gray-300 ml-5 border-solid border-2 p-1 border-black rounded font-bold" href="/tasks/create">CREATE TASK</a>
 
 </x-layout>
