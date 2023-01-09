@@ -33,6 +33,7 @@ placeholder="Task description..."/>
     <option disabled selected hidden st >Choose...</option>
         <option>Frontend</option>
         <option>Backend</option>
+        <option>Full-Stack</option>
    </select>
 
 @error('type')

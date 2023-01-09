@@ -28,6 +28,9 @@ Route::post('/tasks/store',[TaskController::class,'store']);
 // Claim Task 
 Route::post('/tasks/{task}/claim',[TaskController::class,'claim'])->name('tasks.claim')->middleware('auth');
 
+// Show Claimed Tasks 
+Route::get('/claimed-tasks',[TaskController::class, 'claimed'])->name('tasks.claimed')->middleware('auth');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

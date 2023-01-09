@@ -13,6 +13,15 @@ width: 25%;">
 @foreach($tasks as $task)
 <h1>{{$task->title}}</h1>
 <h3>{{$task->description}} - {{$task->type}}</h3>
+@if ($task->user_id != null)
+<button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold">Claimed</button>
+@else
+<form action="{{ route('tasks.claim', $task) }}" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold">Claim Task</button>
+</form>
+@endif
+
 @endforeach
 </div>
 @else 
@@ -20,5 +29,7 @@ width: 25%;">
 @endunless
 </div>
 <a class=" outline-black hover:bg-gray-300 ml-5 border-solid border-2 p-1 border-black rounded font-bold" href="/tasks/create">CREATE TASK</a>
+<a class=" outline-black hover:bg-gray-300 ml-5 border-solid border-2 p-1 border-black rounded font-bold" href="/claimed-tasks">CLAIMED TASKS</a>
+
 
 </x-layout>

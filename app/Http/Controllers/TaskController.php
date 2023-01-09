@@ -41,4 +41,11 @@ public function claim(Task $task)
     }
 }
 
+public function claimed()
+{
+    $claimedTasks = Task::where('user_id', auth()->id())->get();
+
+    return view('tasks/claimed-tasks', compact('claimedTasks'));
+}
+
 }
