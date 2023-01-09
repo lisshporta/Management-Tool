@@ -20,10 +20,13 @@ use App\Http\Controllers\TaskController;
 Route::get('/',[TaskController::class, 'index']);
 
 // Show Create Form
-Route::get('/tasks/create',[TaskController::class,'create']);
+Route::get('/tasks/create',[TaskController::class,'create'])->middleware('auth');
 
 // Create Task
 Route::post('/tasks/store',[TaskController::class,'store']);
+
+// Claim Task 
+Route::post('/tasks/{task}/claim',[TaskController::class,'claim'])->name('tasks.claim')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

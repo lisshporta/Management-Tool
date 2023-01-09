@@ -28,4 +28,17 @@ class TaskController extends Controller
         Task::create($taskForm);
         return redirect('/')->with(['success' => 'Task Added!']);
     } 
+
+
+public function claim(Task $task)
+{
+    if ($task->user_id != null) {
+        return redirect('/')->with('success', 'Task is already claimed!');
+    } else {
+        $task->update(['user_id' => auth()->id()]);
+        $task->update(['status' => 'claimed']);
+        return redirect('/')->with('success', 'Task successfully claimed!');
+    }
+}
+
 }
