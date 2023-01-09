@@ -14,7 +14,7 @@ width: 25%;">
 <h1>{{$task->title}}</h1>
 <h3>{{$task->description}} - {{$task->type}}</h3>
 @if ($task->user_id != null)
-<button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold">Claimed</button>
+<button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold">{{$task->status}}</button>
 @else
 <form action="{{ route('tasks.claim', $task) }}" method="POST">
     @csrf

@@ -1,4 +1,5 @@
 <x-layout>
+<x-flash />
     @unless (count($claimedTasks) == 0)
     <div class="flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -19,6 +20,9 @@
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                         Task Type
                       </th>
+                      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        Task Status
+                      </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,6 +37,14 @@
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             {{$task->type}}
+                          </td>
+                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+
+                            <form action="{{ route('tasks.finish', $task) }}" method="POST">
+                              @csrf
+                              <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold">Finish Task</button>
+                          </form>
+                              <p>{{$task->status}}</p>
                           </td>
                       </tr>
         @endforeach

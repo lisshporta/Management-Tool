@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('type');
-            $table->string('status')->nullable();
+            $table->string('status')->nullable()->default('Open');
             $table->timestamps();
         });
     }

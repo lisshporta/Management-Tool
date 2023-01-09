@@ -36,7 +36,7 @@ public function claim(Task $task)
         return redirect('/')->with('success', 'Task is already claimed!');
     } else {
         $task->update(['user_id' => auth()->id()]);
-        $task->update(['status' => 'claimed']);
+        $task->update(['status' => 'Claimed']);
         return redirect('/')->with('success', 'Task successfully claimed!');
     }
 }
@@ -46,6 +46,13 @@ public function claimed()
     $claimedTasks = Task::where('user_id', auth()->id())->get();
 
     return view('tasks/claimed-tasks', compact('claimedTasks'));
+}
+
+public function finish(Task $task)
+{
+    $task->update(['status' => 'Finished']);
+    return redirect('/claimed-tasks')->with('success', 'Task Marked as Finished!');
+
 }
 
 }
