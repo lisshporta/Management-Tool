@@ -39,10 +39,13 @@
                             {{$task->type}}
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-
+                            @if ($task->status == 'Finished')
+                            @else
                             <form action="{{ route('tasks.finish', $task) }}" method="POST">
                               @csrf
-                              <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold">Finish Task</button>
+                              <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold" 
+                              onclick="return confirm('Are you sure?')">Finish Task</button>
+                              @endif
                           </form>
                               <p>{{$task->status}}</p>
                           </td>
