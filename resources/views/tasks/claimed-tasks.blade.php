@@ -43,7 +43,7 @@
                             @else
                             <form action="{{ route('tasks.finish', $task) }}" method="POST">
                               @csrf
-                              <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black rounded font-bold" 
+                              <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" 
                               onclick="return confirm('Are you sure?')">Finish Task</button>
                               @endif
                           </form>
