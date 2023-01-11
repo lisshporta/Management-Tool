@@ -3,7 +3,8 @@
 <body>
 <style>
     body {
-        background-color:#E0E0E0;
+        background-color:#292929;
+        color:#dcdcdc;
     }
 </style>
 <script src="//unpkg.com/alpinejs" defer></script>

@@ -8,26 +8,26 @@
               <table class="min-w-full">
                 <thead class="border-b">
                   <tr>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" class="text-sm font-medium px-6 py-4 text-left">
                       ID
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" class="text-sm font-medium px-6 py-4 text-left">
                       Task Title
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" class="text-sm font-medium px-6 py-4 text-left">
                       Task Description
                     </th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" class="text-sm font-medium px-6 py-4 text-left">
                         Task Type
                       </th>
-                      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                      <th scope="col" class="text-sm font-medium px-6 py-4 text-left">
                         Task Status
                       </th>
                   </tr>
                 </thead>
                 <tbody>
         @foreach ($claimedTasks as $task)
-                      <tr class="bg-white border-b">
+                      <tr style="background-color:#c0c0c0" class="bg-white border-b">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$task->id}}</td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           {{$task->title}}
@@ -43,18 +43,18 @@
                             @else
                             <form action="{{ route('tasks.finish', $task) }}" method="POST">
                               @csrf
-                              <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" 
+                              <button type="submit" class="text-gray-900 btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-400 rounded font-bold" 
                               onclick="return confirm('Are you sure?')">Finish Task</button>
                               @endif
                               @if ($task->status == 'Finished')
                               <form method="POST" action="{{ route('tasks.delete', $task) }}">
                                 @csrf 
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" 
+                                <button type="submit" class="text-gray-900 btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-400 rounded font-bold" 
                               onclick="return confirm('This will permanently remove the task! Are you sure?')">Remove</button>
                                 </form>
                                 @endif
-                                <a class="border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" href="/tasks/{{$task->id}}/edit">Edit Task</a>
+                                <a class="text-gray-900 border-solid border-2 p-1 border-black hover:bg-gray-400 rounded font-bold" href="/tasks/{{$task->id}}/edit">Edit Task</a>
                           </form>
                               <p>{{$task->status}}</p>
                           </td>
@@ -71,7 +71,7 @@
 @else 
 <p> No Claimed Tasks !</p>
 @endunless
-<a class=" hover:bg-gray-300 ml-2 border-solid border-2 p-1 border-black rounded font-bold outline-black" href="/">GO BACK</a>
-<a class=" hover:bg-gray-300 ml-2 border-solid border-2 p-1 border-black rounded font-bold outline-black" href="/profile">PROFILE</a>
+<a style="border-color:#7d7d7d" class="hover:bg-gray-500 ml-2 border-solid border-2 p-1 rounded font-bold outline-black" href="/">GO BACK</a>
+<a style="border-color:#7d7d7d" class="hover:bg-gray-500 ml-2 border-solid border-2 p-1 rounded font-bold outline-black" href="/profile">PROFILE</a>
 
 </x-layout>

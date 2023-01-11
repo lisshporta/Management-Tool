@@ -40,10 +40,10 @@ placeholder="Task description..."/>
 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
 @enderror
 
-<button class="hover:bg-gray-300 border-solid border-2 p-3 border-black rounded font-bold outline-black" type="submit">Create</button>
+<button style="border-color:#7d7d7d" class="hover:bg-gray-500 border-solid border-2 p-3 rounded font-bold outline-black" type="submit">Create</button>
 </form>
 </div>
-<a class=" hover:bg-gray-300 ml-2 mt-5 border-solid border-2 p-1 border-black rounded font-bold outline-black" href="/">GO BACK</a>
+<a style="border-color:#7d7d7d" class=" hover:bg-gray-500 ml-2 mt-5 border-solid border-2 p-1 rounded font-bold outline-black" href="/">GO BACK</a>
 
 </x-layout>
 
