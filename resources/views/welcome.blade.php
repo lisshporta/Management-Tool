@@ -1,8 +1,8 @@
 <x-layout>
     <x-flash />
     @if(count($tasks) > 0)
-        <div class="flex justify-center items-center mx-40 my-40">
-            <div class="p-15 border-2 border-black rounded-lg">
+        <div class="flex justify-center items-center mx-40 my-20">
+            <div class="p-15 border-2 border-black rounded-lg p-3">
                 <p class="text-xl font-bold">Active Tasks:</p>
                 @foreach($tasks as $task)
                     <div class="my-5">

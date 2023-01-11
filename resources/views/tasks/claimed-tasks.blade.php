@@ -46,6 +46,14 @@
                               <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" 
                               onclick="return confirm('Are you sure?')">Finish Task</button>
                               @endif
+                              @if ($task->status == 'Finished')
+                              <form method="POST" action="{{ route('tasks.delete', $task) }}">
+                                @csrf 
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" 
+                              onclick="return confirm('This will permanently remove the task! Are you sure?')">Remove</button>
+                                </form>
+                                @endif
                           </form>
                               <p>{{$task->status}}</p>
                           </td>

@@ -19,20 +19,28 @@ use App\Http\Controllers\TaskController;
 // Show main page 
 Route::get('/',[TaskController::class, 'index']);
 
+
+Route::middleware('auth')->group(function () {
+
 // Show Create Form
-Route::get('/tasks/create',[TaskController::class,'create'])->middleware('auth');
+Route::get('/tasks/create',[TaskController::class,'create']);
 
 // Create Task
 Route::post('/tasks/store',[TaskController::class,'store']);
 
 // Claim Task 
-Route::post('/tasks/{task}/claim',[TaskController::class,'claim'])->name('tasks.claim')->middleware('auth');
+Route::post('/tasks/{task}/claim',[TaskController::class,'claim'])->name('tasks.claim');
 
 // Finish Task
-Route::post('/tasks/{task}/finish',[TaskController::class,'finish'])->name('tasks.finish')->middleware('auth');
+Route::post('/tasks/{task}/finish',[TaskController::class,'finish'])->name('tasks.finish');
+
+// Remove Task
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.delete');
 
 // Show Claimed Tasks 
-Route::get('/claimed-tasks',[TaskController::class, 'claimed'])->name('tasks.claimed')->middleware('auth');
+Route::get('/claimed-tasks',[TaskController::class, 'claimed'])->name('tasks.claimed');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

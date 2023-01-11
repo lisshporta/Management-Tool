@@ -55,4 +55,13 @@ public function finish(Task $task)
 
 }
 
+public function destroy(Task $task)
+{
+    if ($task->user_id != auth()->id()){
+        abort('403', 'Unauthorized Action');
+    }
+    $task->delete();
+    return redirect('/claimed-tasks')->with('success', 'Task Removed!');
+}
+
 }
