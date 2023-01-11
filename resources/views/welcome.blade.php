@@ -9,7 +9,13 @@
                         <h1 class="text-lg">{{$task->title}}:</h1>
                         <h3 class="text-s text-gray-400-600">{{$task->description}} - {{$task->type}}</h3>
                         @if ($task->user_id != null)
-                            <p style="border-color:#7d7d7d" class="border-2 p-1 rounded-lg font-bold">{{$task->status}} by {{$task->user->name}}</p>
+                            <p style="border-color:#7d7d7d" class="border-2 p-1 rounded-lg font-bold">{{$task->status}} 
+                                @if ($task->status == 'Claimed')
+                                - {{$task->claimed_at->diffForHumans()}} 
+                                @elseif ($task->status == 'Finished')
+                                - {{$task->finished_at->diffForHumans()}} 
+                                @endif
+                                by {{$task->user->name}}</p>
                         @else
                             <form action="{{ route('tasks.claim', $task) }}" method="POST">
                                 @csrf

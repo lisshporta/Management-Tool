@@ -8,6 +8,11 @@ use App\Models\User;
 
 class Task extends Model
 {
+    protected $dates = [
+        'claimed_at',
+        'finished_at'
+    ];
+    
     use HasFactory;
 
     public function user()

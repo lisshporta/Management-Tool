@@ -10,7 +10,7 @@
             >Task Title:</label>
         <input
             type="text"
-            class="border border-gray-200 rounded p-2 w-full outline-black"
+            class="text-black border border-gray-200 rounded p-2 w-full outline-black"
             name="title"
             placeholder="Task title..."
             value="{{$task->title}}"
@@ -24,7 +24,7 @@
     >Task description:</label>
     <input
     type="text"
-    class="border border-gray-200 rounded p-2 w-full outline-black"
+    class="text-black border border-gray-200 rounded p-2 w-full outline-black"
     name="description"
     placeholder="Task description..."
     value="{{$task->description}}"
@@ -35,8 +35,8 @@
     @enderror
     
     
-         <b>Task Type:</b> <select name="type" id="type" class="border border-gray-200 rounded p-2 w-full outline-black">
-        <option disabled selected hidden st >Choose...</option>
+         <b>Task Type:</b> <select name="type" id="type" class="text-black border border-gray-200 rounded p-2 w-full outline-black">
+        <option disabled selected hidden>Choose...</option>
             <option>Frontend</option>
             <option>Backend</option>
             <option>Full-Stack</option>
@@ -46,7 +46,7 @@
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
     
-    <button class="hover:bg-gray-300 border-solid border-2 p-3 border-black rounded font-bold outline-black" type="submit">Update</button>
+    <button class="hover:bg-gray-500 border-solid border-2 p-3 border-black rounded font-bold outline-black" type="submit">Update</button>
     </form>
     </div>
     <a class=" hover:bg-gray-300 ml-2 mt-5 border-solid border-2 p-1 border-black rounded font-bold outline-black" href="/claimed-tasks">GO BACK</a>

@@ -35,6 +35,8 @@ class TaskController extends Controller
 
 public function claim(Task $task)
 {
+    $task->claimed_at = now(); 
+    
     if ($task->user_id != null) {
         return redirect('/')->with('success', 'Task is already claimed!');
     } else {
@@ -53,9 +55,10 @@ public function claimed()
 
 public function finish(Task $task)
 {
+    $task->finished_at = now(); 
+
     $task->update(['status' => 'Finished']);
     return redirect('/claimed-tasks')->with('success', 'Task Marked as Finished!');
-
 }
 
 public function destroy(Task $task)

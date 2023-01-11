@@ -56,7 +56,11 @@
                                 @endif
                                 <a class="text-gray-900 border-solid border-2 p-1 border-black hover:bg-gray-400 rounded font-bold" href="/tasks/{{$task->id}}/edit">Edit Task</a>
                           </form>
-                              <p>{{$task->status}}</p>
+                              <p>{{$task->status}}  @if ($task->status == 'Claimed')
+                                - {{$task->claimed_at->diffForHumans()}} 
+                                @elseif ($task->status == 'Finished')
+                                - {{$task->finished_at->diffForHumans()}} 
+                                @endif</p>
                           </td>
                       </tr>
         @endforeach

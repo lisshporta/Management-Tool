@@ -9,7 +9,7 @@ height: 100%;">
         >Task Title:</label>
     <input
         type="text"
-        class="border border-gray-200 rounded p-2 w-full outline-black"
+        class="text-black border border-gray-200 rounded p-2 w-full outline-black"
         name="title"
         placeholder="Task title..."/>
         
@@ -20,7 +20,7 @@ height: 100%;">
 >Task description:</label>
 <input
 type="text"
-class="border border-gray-200 rounded p-2 w-full outline-black"
+class="text-black border border-gray-200 rounded p-2 w-full outline-black"
 name="description"
 placeholder="Task description..."/>
 
@@ -29,7 +29,7 @@ placeholder="Task description..."/>
 @enderror
 
 
-     <b>Task Type:</b> <select name="type" id="type" class="border border-gray-200 rounded p-2 w-full outline-black">
+     <b>Task Type:</b> <select name="type" id="type" class="text-black border border-gray-200 rounded p-2 w-full outline-black">
     <option disabled selected hidden st >Choose...</option>
         <option>Frontend</option>
         <option>Backend</option>
