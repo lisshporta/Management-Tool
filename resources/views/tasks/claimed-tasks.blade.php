@@ -54,6 +54,7 @@
                               onclick="return confirm('This will permanently remove the task! Are you sure?')">Remove</button>
                                 </form>
                                 @endif
+                                <a class="border-solid border-2 p-1 border-black hover:bg-gray-300 rounded font-bold" href="/tasks/{{$task->id}}/edit">Edit Task</a>
                           </form>
                               <p>{{$task->status}}</p>
                           </td>

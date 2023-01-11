@@ -39,6 +39,14 @@ Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.
 
 // Show Claimed Tasks 
 Route::get('/claimed-tasks',[TaskController::class, 'claimed'])->name('tasks.claimed');
+
+// Update Task
+Route::put('/tasks/{task}',[TaskController::class, 'update'])->name('tasks.update');
+
+// Show Update Page
+Route::get('/tasks/{task}/edit',[TaskController::class, 'edit'])->name('tasks.edit');
+
+
 });
 
 

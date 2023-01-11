@@ -64,4 +64,22 @@ public function destroy(Task $task)
     return redirect('/claimed-tasks')->with('success', 'Task Removed!');
 }
 
+public function edit(Task $task)
+{
+    return view('tasks.update', ['task' => $task]);
+}
+
+public function update(Request $request, Task $task)
+{
+    $taskUpdate = $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'required',
+        'type' => 'required',
+    ]);
+    
+    $task->update($taskUpdate);
+
+    return redirect('/claimed-tasks')->with(['success' => 'Task Updated!']);
+}
+
 }
