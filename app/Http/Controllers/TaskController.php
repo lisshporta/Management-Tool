@@ -25,6 +25,9 @@ class TaskController extends Controller
             'description' => 'required',
             'type' => 'required',
         ]);
+
+        $taskForm['creator_id'] = auth()->id();
+
         Task::create($taskForm);
         return redirect('/')->with(['success' => 'Task Added!']);
     } 
@@ -71,12 +74,14 @@ public function edit(Task $task)
 
 public function update(Request $request, Task $task)
 {
+    $this->authorize('update', $task);
+
     $taskUpdate = $request->validate([
         'title' => 'required|max:255',
         'description' => 'required',
         'type' => 'required',
     ]);
-    
+
     $task->update($taskUpdate);
 
     return redirect('/claimed-tasks')->with(['success' => 'Task Updated!']);

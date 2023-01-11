@@ -72,5 +72,6 @@
 <p> No Claimed Tasks !</p>
 @endunless
 <a class=" hover:bg-gray-300 ml-2 border-solid border-2 p-1 border-black rounded font-bold outline-black" href="/">GO BACK</a>
+<a class=" hover:bg-gray-300 ml-2 border-solid border-2 p-1 border-black rounded font-bold outline-black" href="/profile">PROFILE</a>
 
 </x-layout>
