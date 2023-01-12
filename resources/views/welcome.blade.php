@@ -1,14 +1,14 @@
 <x-layout>
     <x-flash />
     @guest
-    <div>
-        <a href="/login" style="border-color:#7d7d7d" class="btn btn-primary border-solid float-right p-1 hover:bg-gray-400 border-2  rounded-lg font-bold">LOGIN</a>
-        <a href="/register" style="border-color:#7d7d7d" class="btn btn-primary border-solid float-right p-1 hover:bg-gray-400 border-2  rounded-lg font-bold">REGISTER</a>
+    <div class="text-center my-5">
+        <a href="/login" style="border-color:#7d7d7d" class="btn btn-primary border-solid float-right p-1 ml-2 mr-2 hover:bg-gray-400 border-2  rounded-lg font-bold">LOGIN</a>
+        <a href="/register" style="border-color:#7d7d7d" class="btn btn-primary border-solid float-right p-1 ml-2 hover:bg-gray-400 border-2  rounded-lg font-bold">REGISTER</a>
         @endguest
         @auth
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <a href="/logout" style="border-color:#7d7d7d" class="btn  mb-10 btn-primary border-solid float-right p-1 hover:bg-gray-400 border-2  rounded-lg font-bold"
+            <a href="/logout" style="border-color:#7d7d7d" class="btn mr-2 btn-primary border-solid float-right p-1 hover:bg-gray-400 border-2  rounded-lg font-bold"
             onclick="event.preventDefault();
                             this.closest('form').submit();">
             {{ __('Log Out ') }} 
@@ -16,15 +16,12 @@
     </form>
     @endauth
 </div>
-<div>
+<div class="mt-5">
     @if(Request::is('tasks/sort/unclaimed'))
-    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">GO BACK TO ALL TASKS</a>
+    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">GO BACK TO ALL TASKS</a>
     @elseif(!Request::is('tasks/sort/unclaimed'))
-    <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
+    <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
     @endif
-    @auth
-    <h1>Welcome <a href="/profile">{{auth()->user()->name}}</a></h1>   
-    @endauth
     <div>
         
         @if(count($tasks) > 0)
