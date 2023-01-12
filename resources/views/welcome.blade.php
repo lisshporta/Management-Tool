@@ -3,10 +3,22 @@
 @auth
 <h1>Welcome <a href="/profile">{{auth()->user()->name}}</a> </h1>   
 @endauth
+
+@if(Request::is('tasks/sort/unclaimed'))
+  <a href="{{ route('home') }}" class="btn btn-primary">Go back to all tasks</a>
+@elseif(!Request::is('tasks/sort/unclaimed'))
+  <a href="{{ route('unclaimed.sort') }}" class="btn btn-primary">Show unclaimed tasks</a>
+@endif
+
     @if(count($tasks) > 0)
         <div class="flex justify-center items-center mx-40 my-20">
             <div style="border-color:#7d7d7d" class="p-15 border-2 rounded-lg p-3">
-                <p class="text-xl font-bold">Active Tasks:</p>
+                @if(Request::is('/'))
+                <p class="text-xl font-bold"> All Tasks: </p>
+                @else
+                <p class="text-xl font-bold"> Unclaimed Tasks: </p>
+                @endif
+
                 @foreach($tasks as $task)
                     <div class="my-5">
                         <h1 class="text-lg">{{$task->title}}:</h1>

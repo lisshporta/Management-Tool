@@ -82,12 +82,17 @@ public function update(Request $request, Task $task)
     $taskUpdate = $request->validate([
         'title' => 'required|max:255',
         'description' => 'required',
-        'type' => 'required',
     ]);
 
     $task->update($taskUpdate);
 
     return redirect('/claimed-tasks')->with(['success' => 'Task Updated!']);
+}
+
+public function sortByUnclaimed() 
+{
+    $tasks = Task::whereNull('user_id')->get();
+    return view('welcome', ['tasks' => $tasks]);
 }
 
 }

@@ -17,7 +17,10 @@ use App\Http\Controllers\TaskController;
 
 
 // Show main page 
-Route::get('/',[TaskController::class, 'index']);
+Route::get('/',[TaskController::class, 'index'])->name('home');
+
+// Sort by Unclaimed
+Route::get('/tasks/sort/unclaimed', [TaskController::class, 'sortByUnclaimed'])->name('unclaimed.sort');
 
 
 Route::middleware('auth')->group(function () {
