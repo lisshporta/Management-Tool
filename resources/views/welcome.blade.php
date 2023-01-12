@@ -3,7 +3,11 @@
 @auth
 <h1>Welcome <a href="/profile">{{auth()->user()->name}}</a> </h1>   
 @endauth
-
+    <div>
+    <a href="/login" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">LOGIN</a>
+    <a href="/register" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">REGISTER</a> 
+    <a href="/profile" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">PROFILE</a> 
+    </div>
 @if(Request::is('tasks/sort/unclaimed'))
   <a href="{{ route('home') }}" class="btn btn-primary">Go back to all tasks</a>
 @elseif(!Request::is('tasks/sort/unclaimed'))
