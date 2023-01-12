@@ -1,5 +1,8 @@
 <x-layout>
     <x-flash />
+@auth
+<h1>Welcome <a href="/profile">{{auth()->user()->name}}</a> </h1>   
+@endauth
     @if(count($tasks) > 0)
         <div class="flex justify-center items-center mx-40 my-20">
             <div style="border-color:#7d7d7d" class="p-15 border-2 rounded-lg p-3">
