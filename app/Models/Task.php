@@ -12,7 +12,7 @@ class Task extends Model
         'claimed_at',
         'finished_at'
     ];
-    
+
     use HasFactory;
 
     public function user()

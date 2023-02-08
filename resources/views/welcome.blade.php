@@ -11,26 +11,27 @@
             <a href="/logout" style="border-color:#7d7d7d" class="btn mr-2 btn-primary border-solid float-right p-1 hover:bg-gray-400 border-2  rounded-lg font-bold"
             onclick="event.preventDefault();
                             this.closest('form').submit();">
-            {{ __('Log Out ') }} 
+            {{ __('Log Out ') }}
         </a>
     </form>
     @endauth
 </div>
 <div class="mt-5">
-    @if(Request::is('tasks/sort/unclaimed'))
-    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">GO BACK TO ALL TASKS</a>
-    @elseif(!Request::is('tasks/sort/unclaimed'))
+
+    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">HOME</a>
     <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
-    @endif
+    <a href="{{ route('finished.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW FINISHED TASKS</a>
     <div>
-        
+
         @if(count($tasks) > 0)
         <div class="flex justify-center items-center mx-40 my-20">
             <div style="border-color:#7d7d7d" class="p-15 border-2 rounded-lg p-3">
                 @if(Request::is('/'))
                 <p class="text-xl font-bold"> All Tasks: </p>
-                @else
+                @elseif(Request::is('tasks/sort/unclaimed'))
                 <p class="text-xl font-bold"> Unclaimed Tasks: </p>
+                @elseif(Request::is('tasks/sort/finished'))
+                <p class="text-xl font-bold"> Finished Tasks: </p>
                 @endif
 
                 @foreach($tasks as $task)
@@ -38,11 +39,11 @@
                         <h1 class="text-lg">{{$task->title}}:</h1>
                         <h3 class="text-s text-gray-400-600">{{$task->description}} - {{$task->type}}</h3>
                         @if ($task->user_id != null)
-                            <p style="border-color:#7d7d7d" class="border-2 p-1 rounded-lg font-bold">{{$task->status}} 
+                            <p style="border-color:#7d7d7d" class="border-2 p-1 rounded-lg font-bold">{{$task->status}}
                                 @if ($task->status == 'Claimed')
-                                - {{$task->claimed_at->diffForHumans()}} 
+                                - {{$task->claimed_at->diffForHumans()}}
                                 @elseif ($task->status == 'Finished')
-                                - {{$task->finished_at->diffForHumans()}} 
+                                - {{$task->finished_at->diffForHumans()}}
                                 @endif
                                 by {{$task->user->name}}</p>
                         @else
@@ -53,9 +54,9 @@
                         @endif
                     </div>
                 @endforeach
-            </div>  
+            </div>
         </div>
-    @else 
+    @else
         <p class="text-center text-lg font-medium">No Upcoming Tasks!</p>
     @endif
     <div class="text-center my-5">

@@ -16,12 +16,14 @@ use App\Http\Controllers\TaskController;
 */
 
 
-// Show main page 
+// Show main page
 Route::get('/',[TaskController::class, 'index'])->name('home');
 
 // Sort by Unclaimed
 Route::get('/tasks/sort/unclaimed', [TaskController::class, 'sortByUnclaimed'])->name('unclaimed.sort');
 
+// Sort by Finished
+Route::get('/tasks/sort/finished', [TaskController::class, 'sortByFinished'])->name('finished.sort');
 
 Route::middleware('auth')->group(function () {
 
@@ -31,7 +33,7 @@ Route::get('/tasks/create',[TaskController::class,'create']);
 // Create Task
 Route::post('/tasks/store',[TaskController::class,'store']);
 
-// Claim Task 
+// Claim Task
 Route::post('/tasks/{task}/claim',[TaskController::class,'claim'])->name('tasks.claim');
 
 // Finish Task
@@ -40,7 +42,7 @@ Route::post('/tasks/{task}/finish',[TaskController::class,'finish'])->name('task
 // Remove Task
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.delete');
 
-// Show Claimed Tasks 
+// Show Claimed Tasks
 Route::get('/claimed-tasks',[TaskController::class, 'claimed'])->name('tasks.claimed');
 
 // Update Task

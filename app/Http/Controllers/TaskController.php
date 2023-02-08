@@ -30,13 +30,13 @@ class TaskController extends Controller
 
         Task::create($taskForm);
         return redirect('/')->with(['success' => 'Task Added!']);
-    } 
+    }
 
 
 public function claim(Task $task)
 {
-    $task->claimed_at = now(); 
-    
+    $task->claimed_at = now();
+
     if ($task->user_id != null) {
         return redirect('/')->with('success', 'Task is already claimed!');
     } else {
@@ -55,7 +55,7 @@ public function claimed()
 
 public function finish(Task $task)
 {
-    $task->finished_at = now(); 
+    $task->finished_at = now();
 
     $task->update(['status' => 'Finished']);
     return redirect('/claimed-tasks')->with('success', 'Task Marked as Finished!');
@@ -89,9 +89,15 @@ public function update(Request $request, Task $task)
     return redirect('/claimed-tasks')->with(['success' => 'Task Updated!']);
 }
 
-public function sortByUnclaimed() 
+public function sortByUnclaimed()
 {
     $tasks = Task::whereNull('user_id')->get();
+    return view('welcome', ['tasks' => $tasks]);
+}
+
+public function sortByFinished()
+{
+    $tasks = Task::where('status','Finished')->get();
     return view('welcome', ['tasks' => $tasks]);
 }
 
