@@ -1,11 +1,6 @@
 @auth
 <x-layout>
     <x-flash />
-    @guest
-    <div class="text-center my-5">
-        <a href="/login" style="border-color:#7d7d7d" class="btn btn-primary border-solid float-right p-1 ml-2 mr-2 hover:bg-gray-400 border-2  rounded-lg font-bold">LOGIN</a>
-        <a href="/register" style="border-color:#7d7d7d" class="btn btn-primary border-solid float-right p-1 ml-2 hover:bg-gray-400 border-2  rounded-lg font-bold">REGISTER</a>
-        @endguest
         @auth
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -18,9 +13,6 @@
     @endauth
 </div>
 <div class="mt-5">
-    @guest
-    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">WELCOME</a>
-    @endguest
     @auth
     <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">ALL TASKS</a>
     <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
