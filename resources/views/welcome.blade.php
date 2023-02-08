@@ -1,3 +1,4 @@
+@auth
 <x-layout>
     <x-flash />
     @guest
@@ -17,10 +18,14 @@
     @endauth
 </div>
 <div class="mt-5">
-
+    @guest
+    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">WELCOME</a>
+    @endguest
+    @auth
     <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">ALL TASKS</a>
     <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
     <a href="{{ route('finished.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW FINISHED TASKS</a>
+    @endauth
     <div>
 
         @if(count($tasks) > 0)
@@ -65,3 +70,21 @@
 
     </div>
 </x-layout>
+@endauth
+@guest
+<x-layout>
+    <x-flash />
+
+    <div class="text-center mt-80">
+
+    <p class="text-6xl text-center" >Welcome to our Page</p>
+    <p class="text-xl mt-2">
+        <a href="/register" style="border-color:#7d7d7d" class="btn btn-primary border-solid  p-1  hover:bg-gray-400 border-2  rounded-lg font-bold">REGISTER</a>
+        or
+        <a href="/login" style="border-color:#7d7d7d" class="btn btn-primary border-solid  p-1  hover:bg-gray-400 border-2  rounded-lg font-bold">LOGIN</a>
+        to Continue!</p>
+
+
+</div>
+</x-layout>
+@endguest
