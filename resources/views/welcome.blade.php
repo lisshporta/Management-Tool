@@ -16,6 +16,7 @@
     @auth
     <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">ALL TASKS</a>
     <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
+    <a href="{{ route('claimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW CLAIMED TASKS</a>
     <a href="{{ route('finished.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW FINISHED TASKS</a>
     @endauth
     <div>
@@ -29,6 +30,8 @@
                 <p class="text-xl font-bold"> Unclaimed Tasks: </p>
                 @elseif(Request::is('tasks/sort/finished'))
                 <p class="text-xl font-bold"> Finished Tasks: </p>
+                @elseif(Request::is('tasks/sort/claimed'))
+                <p class="text-xl font-bold"> Claimed Tasks: </p>
                 @endif
 
                 @foreach($tasks as $task)

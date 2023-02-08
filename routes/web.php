@@ -19,11 +19,18 @@ use App\Http\Controllers\TaskController;
 // Show main page
 Route::get('/',[TaskController::class, 'index'])->name('home');
 
+
+
 // Sort by Unclaimed
 Route::get('/tasks/sort/unclaimed', [TaskController::class, 'sortByUnclaimed'])->name('unclaimed.sort');
 
 // Sort by Finished
 Route::get('/tasks/sort/finished', [TaskController::class, 'sortByFinished'])->name('finished.sort');
+
+// Sort by Claimed
+Route::get('/tasks/sort/claimed', [TaskController::class, 'sortByClaimed'])->name('claimed.sort');
+
+
 
 Route::middleware('auth')->group(function () {
 
@@ -54,6 +61,7 @@ Route::get('/tasks/{task}/edit',[TaskController::class, 'edit'])->name('tasks.ed
 
 });
 
+// Laravel Breeze
 
 Route::get('/dashboard', function () {
     return view('dashboard');

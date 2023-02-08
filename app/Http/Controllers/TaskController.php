@@ -103,4 +103,10 @@ public function sortByFinished()
     return view('welcome', ['tasks' => $tasks]);
 }
 
+public function sortByClaimed()
+{
+    $tasks = Task::where('status', 'Claimed')->get();
+    return view('welcome', ['tasks' => $tasks]);
+}
+
 }
