@@ -9,8 +9,10 @@ class TaskController extends Controller
 {
     public function index()
     {
+        $tasks = Task::orderBy('user_id', 'asc')->get();
+
         return view('welcome', [
-            'tasks' => Task::all()
+            'tasks' => $tasks
         ]);
     }
     public function create()
