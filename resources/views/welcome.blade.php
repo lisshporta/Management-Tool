@@ -18,7 +18,7 @@
 </div>
 <div class="mt-5">
 
-    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">HOME</a>
+    <a href="{{ route('home') }}" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 ml-2 rounded-lg font-bold">ALL TASKS</a>
     <a href="{{ route('unclaimed.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW UNCLAIMED TASKS</a>
     <a href="{{ route('finished.sort') }}"style="border-color:#7d7d7d" class="btn btn-primary  border-solid hover:bg-gray-400 border-2 ml-2 p-1 rounded-lg font-bold">SHOW FINISHED TASKS</a>
     <div>
@@ -61,7 +61,7 @@
     @endif
     <div class="text-center my-5">
         <a href="/tasks/create" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">CREATE TASK</a>
-<a href="/claimed-tasks" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">CLAIMED TASKS</a>
+<a href="/claimed-tasks" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">MY TASKS</a>
 
     </div>
 </x-layout>
