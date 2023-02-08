@@ -62,6 +62,5 @@
     <div class="text-center my-5">
         <a href="/tasks/create" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">CREATE TASK</a>
 <a href="/claimed-tasks" style="border-color:#7d7d7d" class="btn btn-primary border-solid hover:bg-gray-400 border-2 p-1 rounded-lg font-bold">MY TASKS</a>
-
     </div>
 </x-layout>
